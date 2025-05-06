@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "UI Toolkit Introduction.sln"
+    "dotnet.defaultSolution": "TaskListTool.sln"
 }
