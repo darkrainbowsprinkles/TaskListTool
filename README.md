@@ -1,4 +1,5 @@
-![Task List Banners (1)](https://github.com/user-attachments/assets/38139a31-1f08-4276-9016-a2a2e2c0106b)
+![Task List Banner](https://github.com/user-attachments/assets/460a21b4-3570-4633-a745-f5d316c11ed4)
+
 
 A lightweight and customizable task management tool built directly into the Unity Editor. This tool allows developers to create, manage, and track task lists inside their projects using ScriptableObjects and UI Toolkit.
 
