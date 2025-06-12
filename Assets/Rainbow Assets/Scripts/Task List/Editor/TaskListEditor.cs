@@ -25,9 +25,20 @@ namespace RainbowAssets.TaskList.Editor
         Label notificationLabel;
 
         /// <summary>
-        /// Path to the folder containing UXML and USS files for the task list editor.
+        /// Gets the directory path of this editor script dynamically.
         /// </summary>
-        public const string path = "Assets/Asset Packs/Rainbow Assets/Scripts/Task List/Editor/";
+        public static string GetPath()
+        {
+            string[] guids = AssetDatabase.FindAssets("TaskListEditor t:Script");
+
+            if (guids.Length > 0)
+            {
+                string scriptPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+                return System.IO.Path.GetDirectoryName(scriptPath).Replace("\\", "/") + "/";
+            }
+
+            return "Assets/";
+        }
 
         /// <summary>
         /// Opens the Task List Editor window from the Unity menu.
@@ -63,10 +74,10 @@ namespace RainbowAssets.TaskList.Editor
         {
             container = rootVisualElement;
 
-            VisualTreeAsset original = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(path + "TaskListEditor.uxml");
+            VisualTreeAsset original = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(GetPath() + "TaskListEditor.uxml");
             container.Add(original.Instantiate());
 
-            StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(path + "TaskListEditor.uss");
+            StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(GetPath() + "TaskListEditor.uss");
             container.styleSheets.Add(styleSheet);
 
             savedTasksObjectField = container.Q<ObjectField>("savedTasksObjectField");

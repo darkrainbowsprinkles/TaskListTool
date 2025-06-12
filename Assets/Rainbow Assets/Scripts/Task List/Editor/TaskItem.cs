@@ -24,7 +24,7 @@ namespace RainbowAssets.TaskList.Editor
         /// <param name="taskText">The text of the task to display.</param>
         public TaskItem(string taskText)
         {
-            VisualTreeAsset original = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(TaskListEditor.path + "TaskItem.uxml");
+            VisualTreeAsset original = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(TaskListEditor.GetPath() + "TaskItem.uxml");
             this.Add(original.Instantiate());
 
             taskToggle = this.Q<Toggle>();
